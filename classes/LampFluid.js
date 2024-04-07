@@ -1,11 +1,11 @@
 class LampFluid {
     constructor(blurIntensity, blobThreshold, boundingRectGrowth) {
-        this.blurIntensity = blurIntensity;
         this.blobThreshold = blobThreshold;
-        this.boundingRectGrowth = boundingRectGrowth;
+        this.blurIntensity = blurIntensity;
+        this._boundingRectGrowth = boundingRectGrowth;
 
         this.blobs = [];
-        this.blobLayer = createGraphics(width, height);
+        this._blobLayer = createGraphics(width, height);
     }
 
     update() {
@@ -107,21 +107,21 @@ class LampFluid {
     }
 
     draw(mask=undefined) {
-        const br = this.getBoundingRect(this.boundingRectGrowth);
+        const br = this.getBoundingRect(this._boundingRectGrowth);
         // this.drawBR(br)
         const buffer = createGraphics(br.width, br.height);
         this.drawToBuffer(buffer, this.shiftBlobs(br))
     
-        this.blobLayer.clear()
-        this.blobLayer.loadPixels();
+        this._blobLayer.clear()
+        this._blobLayer.loadPixels();
         mask.loadPixels()
-        this.applyFilter(this.blobLayer.pixels, 
+        this.applyFilter(this._blobLayer.pixels, 
                          buffer, 
                          br, 
                          this.blobThreshold, 
                          mask);
-        this.blobLayer.updatePixels();
+        this._blobLayer.updatePixels();
 
-        image(this.blobLayer, 0, 0)
+        image(this._blobLayer, 0, 0)
     }
 }
