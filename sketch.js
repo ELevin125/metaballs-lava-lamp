@@ -1,20 +1,20 @@
-let lamp;
-let color_1;
-let color_2;
+let LAMP;
+let gradColor_1;
+let gradColor_2;
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     // createCanvas(400, 800);
     noStroke();
-	color_1 = color(64);
-	color_2 = color(0);
-	lamp = new Lamp();
+	gradColor_1 = color(64);
+	gradColor_2 = color(0);
+	LAMP = new Lamp();
 }
 
 function draw() {
-	setGradient(0, 0, width, height, color_1, color_2);
+	setGradient(0, 0, width, height, gradColor_1, gradColor_2);
 	// displayFrameRate();
 
-	lamp.update();
+	LAMP.update();
 }
 
 function displayFrameRate() {
@@ -23,6 +23,8 @@ function displayFrameRate() {
 	textSize(16);
 	text("Frame Rate: " + currentFrameRate.toFixed(2), 10, 30);
 }
+
+// draws a gradient by lerping between the two provided colours
 function setGradient(x, y, w, h, c1, c2) {
 	push();
 	noFill();
