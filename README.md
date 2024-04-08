@@ -1,6 +1,5 @@
-![image](https://github.com/ELevin125/metaballs-lava-lamp/assets/123626350/7f275046-5773-4c63-8c76-6a4a0ef6180e)
-
 # 2D Metaballs Lava Lamp
+![image](https://github.com/ELevin125/metaballs-lava-lamp/assets/123626350/7f275046-5773-4c63-8c76-6a4a0ef6180e)
 
 This project creates a mesmerizing lava lamp effect using metaballs implemented with the use p5.js. Metaballs are organic-looking n-dimensional objects used in computer graphics to model blobs of varying shapes and sizes.
 
